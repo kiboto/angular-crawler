@@ -2,7 +2,7 @@
   "name": "angular-crawler",
   "description": "AngularJS Crawler",
   "version": "0.0.1",
-  "homepage": "https://letrung232.com",
+  "homepage": "https://github.com/kiboto/angular-crawler",
   "dependencies": {
     "angular": "1.6.x",
     "angular-animate": "1.6.x",
