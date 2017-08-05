@@ -1,0 +1,15 @@
+{
+  "name": "angular-crawler",
+  "description": "AngularJS Crawler",
+  "version": "0.0.1",
+  "homepage": "https://letrung232.com",
+  "dependencies": {
+    "angular": "1.6.x",
+    "angular-animate": "1.6.x",
+    "angular-sanitize": "1.6.x",
+    "angular-resource": "1.6.x",
+    "angular-route": "1.6.x",
+    "bootstrap": "3.3.x",
+    "jquery": "2.2.x"
+  }
+}

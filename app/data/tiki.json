@@ -1,0 +1,30 @@
+{
+  "url1": "https://tiki.vn/internet-tivi-samsung-32-inch-ua32j4303-p453506.html",
+  "url2": "https://tiki.vn/smart-tivi-samsung-49-inch-ua49k5500-p499910.html",
+  "dataAttribute": [
+    {
+      "label": "Name",
+      "type": "text-1",
+      "attribute1": "#product-name",
+      "attribute2": "#product-name"
+    },
+    {
+      "label": "Price",
+      "type": "text-1",
+      "attribute1": "#span-price",
+      "attribute2": "#span-price"
+    },
+    {
+      "label": "Loại Tivi",
+      "type": "text-n",
+      "attribute1": "#chi-tiet tbody tr .last,0",
+      "attribute2": "#chi-tiet tbody tr .last,0"
+    },
+    {
+      "label": "Xem 3D",
+      "type": "text-n",
+      "attribute1": "#chi-tiet tbody tr .last,4",
+      "attribute2": "#chi-tiet tbody tr .last,3"
+    }
+  ]
+}

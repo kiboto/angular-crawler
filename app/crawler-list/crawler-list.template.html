@@ -1,0 +1,118 @@
+<div class="container" id="crawler-list">
+
+<!--  Input  -->
+  <div class="panel panel-default">
+    <div class="panel-body">
+
+      <div class="text-center">
+        <h2>AngularJS Crawler Simple</h2>
+        <small>Version: 0.0.1 | Author: letrung232@gmail.com</small>
+      </div>
+
+      <p class="text-danger"><b>Note: </b></p>
+      <ul>
+        <li>Support for data collection in <b>multiple levels </b></li>
+        <li><b>ONLY</b> support for data type is <b>TEXT</b></li>
+        <li><b>NOT</b> support for cors domain</li>
+      </ul>
+      <p>Example: </p>
+      <div>
+        <button type="button" ng-click="loadExample('tiki')" class="btn btn-default">Tiki</button>
+       </div>
+      <hr/>
+      <form name="nameForm" novalidate autocomplete="off">
+        <div class="form-group">
+          <label for="url-one">URL 1:</label>
+          <input type="url" required="" ng-model="dataInput.url1" class="form-control" id="url-one" placeholder="Enter URL">
+        </div>
+        <div class="form-group">
+          <label for="url-two">URL 2:</label>
+          <input type="url" required="" ng-model="dataInput.url2" class="form-control" id="url-two" placeholder="Enter URL">
+        </div>
+
+        <div class="data-config">
+
+          <label>The Attribute</label>
+          <div class="row">
+            <div class="col-md-2">Label</div>
+            <div class="col-md-2">Type</div>
+            <div class="col-md-4">Attribute URL 1</div>
+            <div class="col-md-4">Attribute URL 2</div>
+          </div>
+
+          <div class="row attribute-item" ng-repeat="item in dataInput.dataAttribute track by $index">
+            <div class="col-md-2">
+              <input type="text" required="" ng-disabled="!dataInput.url1 || !dataInput.url2" ng-model="item.label" class="form-control" placeholder="Enter Name Attribute">
+            </div>
+            <div class="col-md-2">
+              <select class="form-control" ng-model="item.type">
+                <option value="text-1">One level</option>
+                <option value="text-n">Multi levels</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <input type="text" required="" ng-disabled="!dataInput.url1 || !dataInput.url2" ng-model="item.attribute1" class="form-control" placeholder="Enter Value Attribute 1">
+              <small ng-if="item.type ==='text-1'">Format Input: <b>ELEMENT</b></small>
+              <small ng-if="item.type ==='text-n'">Format Input: <b>ELEMENT</b>, <b>INDEX of Element</b></small>
+            </div>
+            <div class="col-md-4">
+              <input type="text" required="" ng-disabled="!dataInput.url1 || !dataInput.url2" ng-model="item.attribute2" class="form-control" placeholder="Enter Value Attribute 2">
+
+              <button type="button" title="Remove Attribute {{$index + 1}}" class="float-right btn btn-default btn-xs" ng-click="removeAttribute($index)">
+                <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+          
+          <div class="btn-add-attribute">
+            <button type="button" class="btn btn-default btn-xs" ng-click="addAttribute()">
+              <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Attribute
+            </button>
+          </div>
+
+
+        </div>
+
+        <div class="text-center">
+          <button type="button" ng-disabled="nameForm.$invalid" ng-click="submit(dataInput)" class="btn btn-success">Submit</button>
+        </div>
+
+        
+      </form>
+
+    </div>
+  </div>
+
+
+  <!--  Show result -->
+  <div class="panel panel-default" ng-if="dataOutput">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th class="test">Label</th>
+                <th>Digital of URL 1</th>
+                <th>Digital of URL 2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in dataOutput track by $index">
+                <th>{{$index + 1}}</th>
+                <th ng-bind-html="item.label | safeHtml"></th>
+                <th ng-bind-html="item.value_attr_0 | safeHtml"></th>
+                <th ng-bind-html="item.value_attr_1 | safeHtml"></th>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
